@@ -207,6 +207,17 @@ function a() {
 	fi;
 }
 
+# `vscode` opens vscode
+function vscode(){
+	if [[ $# = 0 ]]
+	then
+		open -a "Visual Studio Code"
+	else
+		[[ $1 = /* ]] && F="$1" || F="$PWD/${1#./}"
+		open -a "Visual Studio Code" --args "$F"
+	fi
+}
+
 # `v` with no arguments opens the current directory in Vim, otherwise opens the
 # given location
 function v() {
